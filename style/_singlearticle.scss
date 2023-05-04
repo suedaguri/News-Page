@@ -1,0 +1,46 @@
+.article {
+    @include center;
+    margin: 0 15%;
+
+    & figure {
+        width: 100% !important;
+    }
+
+    img {
+        padding-top: 10px;
+        width: 100%;
+        height: auto;
+    }
+
+    .btText {
+        padding: 5px 0;
+    }
+
+    & p {
+        @include wrapcaption;
+    }
+
+    &__name {
+        font-size: 2rem;
+        padding-top: 20px;
+        font-weight: 800;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    & small {
+        @include caption;
+    }
+
+    & h2 {
+        @include wrapcaption;
+
+        & strong {
+            @include caption;
+        }
+    }
+
+    & figcaption {
+        @include caption;
+    }
+}

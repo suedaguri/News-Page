@@ -1,0 +1,41 @@
+@mixin container {
+    max-width: $containerWidth;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@mixin center {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin loader {
+    border: 14px solid #f3f3f3;
+    border-top: 14px solid #3498db;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@mixin fullPercent {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@mixin wrapcaption {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+@mixin caption {
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+@mixin noTopPadding {
+    padding: 0 10px 10px 10px;
+}
