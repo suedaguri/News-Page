@@ -35,38 +35,38 @@ ul {
       padding: 20px;
     }
 
-    
-  &__name {
-    height: 50%;
-    padding: 0 25px 30px 25px;
-    text-align: center;
-    font-size: 17.5px;
-  }
 
-  &__img {
-    height: 18.75rem;
-    margin-bottom: 1.25rem;
-
-    & img {
-      width: 100%;
-      height: inherit;
-      object-fit: cover;
+    &__name {
+      height: 50%;
+      padding: 0 25px 30px 25px;
+      text-align: center;
+      font-size: 17.5px;
     }
-  }
 
-  &__content {
-    font-size: 16px;
-    text-align: justify;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
+    &__img {
+      height: 18.75rem;
+      margin-bottom: 1.25rem;
 
-  &__date {
-    width: 90%;
-    padding-bottom: 10px;
-    font-style: italic;
-  }
-  
+      & img {
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      font-size: 16px;
+      text-align: justify;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    &__date {
+      width: 90%;
+      padding-bottom: 10px;
+      font-style: italic;
+    }
+
   }
 
   &__header {
