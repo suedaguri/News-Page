@@ -153,7 +153,7 @@ ul {
   list-style: none;
 }
 
-.news__container {
+.news-container {
   padding: 0 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -161,33 +161,48 @@ ul {
        column-gap: 40px;
   row-gap: 40px;
 }
-.news__name {
+.news-container__link {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  color: black;
+  text-decoration: none;
+}
+.news-container__link:hover {
+  transform: scale(1.05);
+  transition: all 0.5s ease-out 0s;
+  cursor: pointer;
+}
+.news-container__article {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.news-container__name {
   height: 50%;
   padding: 0 25px 30px 25px;
   text-align: center;
   font-size: 17.5px;
 }
-.news__img {
+.news-container__img {
   height: 18.75rem;
   margin-bottom: 1.25rem;
 }
-.news__img img {
+.news-container__img img {
   width: 100%;
   height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.news__content {
+.news-container__content {
   font-size: 16px;
   text-align: justify;
   line-height: 1.5;
   margin-bottom: 20px;
 }
-.news__articles-container {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+.news-container__date {
+  width: 90%;
+  padding-bottom: 10px;
+  font-style: italic;
 }
 .news__header {
   display: flex;
@@ -202,21 +217,6 @@ ul {
 }
 .news__header li:hover {
   color: blue;
-  cursor: pointer;
-}
-.news__date {
-  width: 90%;
-  padding-bottom: 10px;
-  font-style: italic;
-}
-.news__href {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-  color: black;
-  text-decoration: none;
-}
-.news__href:hover {
-  transform: scale(1.05);
-  transition: all 0.5s ease-out 0s;
   cursor: pointer;
 }
 
@@ -261,17 +261,17 @@ ul {
 .button:disabled:hover {
   box-shadow: none;
 }
-.button__wrapper {
+.button-wrapper {
   display: grid;
   align-items: center;
   justify-content: center;
   padding: 27px 0;
 }
-.button__wrapper--padding {
+.button-wrapper--padding {
   padding: 0 0 15px 0;
 }
 
-.loader1 {
+.loader--1 {
   border: 14px solid #f3f3f3;
   border-top: 14px solid #3498db;
   border-radius: 50%;
@@ -283,14 +283,14 @@ ul {
   left: calc(50% - 45px);
 }
 
-.loader__wrapper {
+.loader-wrapper {
   display: grid;
   align-items: center;
   justify-content: center;
   padding: 15px;
 }
 
-.loader2 {
+.loader--2 {
   border: 14px solid #f3f3f3;
   border-top: 14px solid #3498db;
   border-radius: 50%;
@@ -312,70 +312,64 @@ ul {
   }
 }
 @media (max-width: 767px) {
-  .news__container {
+  .news-container {
     grid-template-columns: 1fr;
     padding: 0 70px;
   }
-  .news__articles-container {
-    padding: 0 10px 10px 10px;
-  }
-  .article__name {
+  .article__item .article__item-name {
     font-size: 1.5rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  .news__articles-container {
-    padding: 0 10px 10px 10px;
-  }
-  .news__container {
+  .news-container {
     padding: 0 70px;
   }
 }
-.article {
+.article__item {
   display: grid;
   align-items: center;
   justify-content: center;
   margin: 0 15%;
 }
-.article figure {
+.article__item figure {
   width: 100% !important;
 }
-.article img {
+.article__item img {
   padding-top: 10px;
   width: 100%;
   height: auto;
 }
-.article .btText {
+.article__item .btText {
   padding: 5px 0;
 }
-.article p {
+.article__item p {
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
 }
-.article__name {
+.article__item-name {
   font-size: 2rem;
   padding-top: 20px;
   font-weight: 800;
   text-align: center;
   padding-bottom: 10px;
 }
-.article small {
+.article__item small {
   text-align: center;
   font-style: italic;
   padding-bottom: 10px;
 }
-.article h2 {
+.article__item h2 {
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
 }
-.article h2 strong {
+.article__item h2 strong {
   text-align: center;
   font-style: italic;
   padding-bottom: 10px;
 }
-.article figcaption {
+.article__item figcaption {
   text-align: center;
   font-style: italic;
   padding-bottom: 10px;

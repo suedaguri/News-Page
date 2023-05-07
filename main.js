@@ -1,11 +1,11 @@
-const news = document.querySelector(".news__container");
+const news = document.querySelector(".news-container");
 const Albania = document.querySelector(".news__header--Albania");
 const Bulgaria = document.querySelector(".news__header--Bulgaria");
 const Croatia = document.querySelector(".news__header--Croatia");
 const btn = document.querySelector(".button");
-const btnWrapper = document.querySelector(".button__wrapper");
-const loader = document.querySelector(".loader1");
-const loader1 = document.querySelector(".loader__wrapper");
+const btnWrapper = document.querySelector(".button-wrapper");
+const loader = document.querySelector(".loader--1");
+const loader1 = document.querySelector(".loader-wrapper");
 
 const idAl = 206, idBg = 211, idCr = 191;
 let currentPage = 1;
@@ -14,18 +14,18 @@ let active = sessionStorage.getItem("activeCategory") ?? idAl;
 const fetchNews = (data) => {
   data.forEach((res) => {
     const html = `
-      <a href='single.html?post_id=${res.id}' class="news__href">
-        <article class="news__articles-container">            
-          <div class="news__name">
+      <a href='single.html?post_id=${res.id}' class="news-container__link">
+        <article class="news-container__article">            
+          <div class="news-container__name">
             <h3>${res.title.rendered}</h3>
           </div>
-          <div class="news__img">
-            <img src="${res.yoast_head_json.og_image[0].url}" alt="image" />
+          <div class="news-container__img">
+            <img src="${res.yoast_head_json.og_image[0].url}" alt="image" loading="lazy"/>
           </div>
-          <div class="news__date">
+          <div class="news-container__date">
             <p>${res.yoast_head_json.article_published_time.slice(0, 10)}</p>
           </div>
-          <p class="news__content">${res.yoast_head_json.description}</p>
+          <p class="news-container__content">${res.yoast_head_json.description}</p>
         </article>
       </a>
     `;

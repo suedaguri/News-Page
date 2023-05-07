@@ -2,31 +2,24 @@
     @media(max-width: 767px) {
 
         //Timeline scss
-        .news__container {
+        .news-container {
             grid-template-columns: $grid-1-column;
             padding: 0 70px;
         }
 
-        .news__articles-container {
-            @include noTopPadding;
-        }
-
         //Single Page scss
-        .article__name {
+        .article__item {
+        .article__item-name {
             font-size: 1.5rem;
         }
+    }
     }
 }
 
 @mixin tablet {
     @media(min-width: 768px) and (max-width: 1024px) {
 
-        //Timeline scss
-        .news__articles-container {
-            @include noTopPadding;
-        }
-
-        .news__container {
+        .news-container {
             padding: 0 70px;
         }
     }

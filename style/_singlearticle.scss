@@ -1,4 +1,4 @@
-.article {
+.article__item {
     @include center;
     margin: 0 15%;
 
@@ -20,7 +20,7 @@
         @include wrapcaption;
     }
 
-    &__name {
+    &-name {
         font-size: 2rem;
         padding-top: 20px;
         font-weight: 800;
@@ -43,4 +43,5 @@
     & figcaption {
         @include caption;
     }
+
 }

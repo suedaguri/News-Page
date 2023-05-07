@@ -1,16 +1,16 @@
-const singleArticle = document.querySelector(".article__container");
-const loader = document.querySelector(".loader1");
+const singleArticle = document.querySelector(".article");
+const loader = document.querySelector(".loader--1");
 const btn = document.querySelector(".button");
-const btnWrapper = document.querySelector(".button__wrapper");
+const btnWrapper = document.querySelector(".button-wrapper");
 const search = new URLSearchParams(document.location.search);
 const id = search.get("post_id");
 
 const fetchArticle = (res) => {
   let html = `
-        <article class="article">
-        <h3 class="article__name">${res.title.rendered}</h3>
-        <img class="article__img" src="${res.yoast_head_json.og_image[0].url} " alt="image" />
-            <p class="article__content">${res.content.rendered}</p>
+        <article class="article__item">
+        <h3 class="article__item-name">${res.title.rendered}</h3>
+        <img class="article__item-img" src="${res.yoast_head_json.og_image[0].url} " alt="image" loading="lazy"/>
+            <p class="article__item-content">${res.content.rendered}</p>
         </article>
     `;
   singleArticle.insertAdjacentHTML("beforebegin", html);
