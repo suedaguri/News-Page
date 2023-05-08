@@ -32,6 +32,6 @@ const fetchSingleAPI = async () => {
 
 fetchSingleAPI();
 
-btn.addEventListener('click', function() {
-  location.href='index.html';
+btn.addEventListener("click", function () {
+  location.href = "index.html";
 });

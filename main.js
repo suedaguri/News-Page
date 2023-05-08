@@ -9,7 +9,7 @@ const loader1 = document.querySelector(".loader-wrapper");
 
 const idAl = 206, idBg = 211, idCr = 191;
 let currentPage = 1;
-let active = sessionStorage.getItem("activeCategory") ?? idAl;
+let active = sessionStorage.getItem("activeCategory") || idAl;
 
 const fetchNews = (data) => {
   data.forEach((res) => {
@@ -31,7 +31,6 @@ const fetchNews = (data) => {
     `;
     news.insertAdjacentHTML("beforeend", html);
   });
-  btnWrapper.style.display = "grid";
   loader1.style.display = "none";
 };
 
@@ -41,9 +40,7 @@ const fetchCategory = async (id) => {
     btnWrapper.style.display = "none";
     activeCategory = id;
     sessionStorage.setItem("activeCategory", activeCategory);
-    const fetchnews = await fetch(
-      `https://balkaninsight.com/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&_embed=1&categories=${id}`
-    );
+    const fetchnews = await fetch(`https://balkaninsight.com/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&_embed=1&categories=${id}`);
     const response = await fetchnews.json();
     loader.style.display = "none";
     btnWrapper.style.display = "grid";
@@ -84,7 +81,5 @@ loader1.style.display = "none";
 btn.addEventListener("click", function () {
   currentPage++;
   fetchCategory(active);
-  btnWrapper.style.display = "none";
   loader1.style.display = "grid";
-  loader.style.display = "none";
 });
