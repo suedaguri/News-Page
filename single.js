@@ -5,6 +5,10 @@ const btnWrapper = document.querySelector(".button-wrapper");
 const search = new URLSearchParams(document.location.search);
 const id = search.get("post_id");
 
+const updateDisplay = (element, display) => {
+  element.style.display = display;
+};
+
 const fetchArticle = (res) => {
   let html = `
         <article class="article__item">
@@ -18,13 +22,13 @@ const fetchArticle = (res) => {
 
 const fetchSingleAPI = async () => {
   try {
-    btnWrapper.style.display = "none";
-    loader.style.display = "block";
+    updateDisplay(btnWrapper, "none");
+    updateDisplay(loader, "block");
     const fetchArt = await fetch(`https://balkaninsight.com/wp-json/wp/v2/posts/${id}?_embed=1`);
     const res = await fetchArt.json();
     fetchArticle(res);
-    loader.style.display = "none";
-    btnWrapper.style.display = "grid";
+    updateDisplay(loader, "none");
+    updateDisplay(btnWrapper, "grid");
   } catch (err) {
     console.error("Something went badly!");
   }

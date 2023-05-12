@@ -11,6 +11,10 @@ const idAl = 206, idBg = 211, idCr = 191;
 let currentPage = 1;
 let active = sessionStorage.getItem("activeCategory") || idAl;
 
+const updateDisplay = (element, display) => {
+  element.style.display = display;
+};
+
 const fetchNews = (data) => {
   data.forEach((res) => {
     const html = `
@@ -20,30 +24,36 @@ const fetchNews = (data) => {
             <h3>${res.title.rendered}</h3>
           </div>
           <div class="news-container__img">
-            <img src="${res.yoast_head_json.og_image[0].url}" alt="image" loading="lazy"/>
+            <img src="${
+              res.yoast_head_json.og_image[0].url
+            }" alt="image" loading="lazy"/>
           </div>
           <div class="news-container__date">
             <p>${res.yoast_head_json.article_published_time.slice(0, 10)}</p>
           </div>
-          <p class="news-container__content">${res.yoast_head_json.description}</p>
+          <p class="news-container__content">${
+            res.yoast_head_json.description
+          }</p>
         </article>
       </a>
     `;
     news.insertAdjacentHTML("beforeend", html);
   });
-  loader1.style.display = "none";
+  updateDisplay(loader1, "none");
 };
 
 const fetchCategory = async (id) => {
   try {
-    loader.style.display = "block";
-    btnWrapper.style.display = "none";
+    updateDisplay(loader, "block");
+    updateDisplay(btnWrapper, "none");
     activeCategory = id;
     sessionStorage.setItem("activeCategory", activeCategory);
-    const fetchnews = await fetch(`https://balkaninsight.com/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&_embed=1&categories=${id}`);
+    const fetchnews = await fetch(
+      `https://balkaninsight.com/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&_embed=1&categories=${id}`
+    );
     const response = await fetchnews.json();
-    loader.style.display = "none";
-    btnWrapper.style.display = "grid";
+    updateDisplay(loader, "none");
+    updateDisplay(btnWrapper, "grid");
     fetchNews(response);
   } catch (err) {
     console.error("Something went badly!", err);
@@ -76,10 +86,10 @@ if (active) {
     Albania.classList.add("active");
   }
 }
-loader1.style.display = "none";
+updateDisplay(loader1, "none");
 
 btn.addEventListener("click", function () {
   currentPage++;
   fetchCategory(active);
-  loader1.style.display = "grid";
+  updateDisplay(loader1, "grid");
 });
